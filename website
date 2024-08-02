@@ -1,0 +1,255 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>@Takedown</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;family=Poppins:wght@400;700&amp;display=swap" rel="stylesheet">
+  <link rel="icon" href="images/67d48ed87c2d2f1553eba56784d66fa9.webp">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      position: relative;
+      width: 100%;
+      overflow-x: hidden;
+      background-color: #000000; /* Background color */
+      color: #b3b3b3;
+    }
+
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    }
+
+    .star::before {
+      content: '';
+      position: absolute;
+      top: -1px;
+      left: -1px;
+      width: 4px;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 50%;
+      filter: blur(2px);
+    }
+
+    .spacing {
+      --nav-main-spacing: -3rem;
+      --main-faq-spacing: 3rem;
+      --faq-features-spacing: 3rem;
+    }
+
+    .main-content {
+      margin-top: var(--nav-main-spacing);
+      animation: fadeIn 1s ease-out;
+    }
+
+    .faq-section {
+      margin-top: var(--main-faq-spacing);
+      animation: fadeIn 1.5s ease-out;
+    }
+
+    .features-section {
+      margin-top: var(--faq-features-spacing);
+      animation: fadeIn 2s ease-out;
+    }
+
+    .faq-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease-in-out;
+      color: #b3b3b3; /* Update text color inside of FAQ */
+    }
+
+    .faq-content.open {
+      max-height: 500px; /* Adjust as necessary */
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #2d2d2d;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #bb1212;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #ff0000;
+    }
+
+    .card {
+      background-color: #0a0a0a; /* Slightly lighter than background */
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      background-color: #360000; /* Slightly lighter on hover */
+    }
+
+    .faq-button {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-button .emoji {
+      transition: transform 0.3s ease;
+    }
+
+    .faq-button .emoji.open {
+      transform: rotate(180deg);
+    }
+  </style>
+</head>
+
+<body class="spacing">
+  <div class="container mx-auto p-4">
+    <!-- Navigation -->
+    <nav class="flex justify-between items-center py-4">
+      <div class="text-2xl font-bold bg-gradient-to-r from-purple-500 to-purple-700 text-transparent bg-clip-text">@Takedown</div>
+      <div class="space-x-4 text-lg">
+        <a href="https://discord.gg/AqHbNER8Z9" class="hover:text-gray-400"><i class="fab fa-discord"></i></a>
+        <a href="https://github.com/DevilishRar/Takedowns/tree/main" class="hover:text-gray-400" onclick="redirectToGitHub()"><i class="fab fa-github"></i></a>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content flex flex-col lg:flex-row items-center py-16 min-h-screen justify-center">
+      <div class="text-center lg:text-left lg:w-1/2">
+        <h1 class="text-4xl font-bold mb-4 text-purple-500">@Takedown for <span class="text-purple-700">Roblox</span></h1>
+        <h2 class="text-3xl mb-4">Bypass with <span class="text-purple-700">power</span>. Inject with <span class="text-purple-700">ease</span>.</h2>
+        <p class="text-lg mb-6">Experience the ultimate cheating tool for Roblox. Our dedicated developers ensure constant updates and superior performance.</p>
+        <div class="flex space-x-4">
+          <a href="https://discord.gg/AqHbNER8Z9" class="bg-purple-600 text-white py-2 px-4 rounded-full text-lg">Get Takedown Now!</a>
+          <button onclick="scrollToSection('faq')" class="bg-gray-800 text-white py-2 px-4 rounded-full text-lg">FAQ</button>
+          <button onclick="scrollToSection('features')" class="bg-gray-800 text-white py-2 px-4 rounded-full text-lg">Features</button>
+        </div>
+      </div>
+      <div class="mt-8 lg:mt-0 lg:w-1/2 flex justify-center">
+        <img src="images/image.png" alt="@Takedown external" class="rounded-lg shadow-2xl">
+      </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq-section py-16">
+      <h2 class="text-3xl font-bold mb-8 text-center text-purple-500">Frequently Asked Questions</h2>
+      <div class="space-y-8">
+        <div class="card p-6 rounded-lg">
+          <button class="faq-button text-2xl font-semibold mb-4 w-full text-left focus:outline-none" onclick="toggleFaq(this)">
+            What is @Takedown?
+            <span class="emoji">⌄</span>
+          </button>
+          <div class="faq-content">
+            <p>@Takedown is a powerful Roblox executor that allows you to inject scripts and bypass restrictions effortlessly.</p>
+          </div>
+        </div>
+        <div class="card p-6 rounded-lg">
+          <button class="faq-button text-2xl font-semibold mb-4 w-full text-left focus:outline-none" onclick="toggleFaq(this)">
+            Is @Takedown safe to use?
+            <span class="emoji">⌄</span>
+          </button>
+          <div class="faq-content">
+            <p>Yes, our team of dedicated developers constantly updates @Takedown to ensure its safety and reliability.</p>
+          </div>
+        </div>
+        <div class="card p-6 rounded-lg">
+          <button class="faq-button text-2xl font-semibold mb-4 w-full text-left focus:outline-none" onclick="toggleFaq(this)">
+            How can I get @Takedown?
+            <span class="emoji">⌄</span>
+          </button>
+          <div class="faq-content">
+            <p>You can download @Takedown by clicking on the "Get @Takedown Now!" button above.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features-section py-16">
+      <h2 class="text-3xl font-bold mb-8 text-center text-purple-500">Features</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="card p-6 rounded-lg">
+          <h3 class="text-2xl font-semibold mb-4">Advanced Scripting</h3>
+          <p>Our team ensures that @Takedown is always up-to-date with the latest Roblox patches.</p>
+        </div>
+        <div class="card p-6 rounded-lg">
+          <h3 class="text-2xl font-semibold mb-4">Regular Updates</h3>
+          <p>Navigating through @Takedown's features is simple and intuitive.</p>
+        </div>
+        <div class="card p-6 rounded-lg">
+          <h3 class="text-2xl font-semibold mb-4">User-Friendly Interface</h3>
+          <p>Experience lightning-fast Injection and bypassing.</p>
+        </div>
+        <div class="card p-6 rounded-lg">
+          <h3 class="text-2xl font-semibold mb-4">High Performance</h3>
+          <p>Tailor @Takedown to fit your specific needs and preferences.</p>
+        </div>
+        <div class="card p-6 rounded-lg">
+          <h3 class="text-2xl font-semibold mb-4">Customizable Settings</h3>
+          <p>Our support team is always ready to assist you with any issues.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- SVG Stars -->
+  <div id="stars-container" class="absolute inset-0 -z-10"><div class="star" style="top: 46.6203%; left: 71.4252%;"></div><div class="star" style="top: 37.2142%; left: 35.148%;"></div><div class="star" style="top: 24.4501%; left: 79.1953%;"></div><div class="star" style="top: 67.8256%; left: 50.369%;"></div><div class="star" style="top: 58.4081%; left: 42.1319%;"></div><div class="star" style="top: 60.8525%; left: 92.9392%;"></div><div class="star" style="top: 28.9353%; left: 41.3488%;"></div><div class="star" style="top: 88.2754%; left: 9.0569%;"></div><div class="star" style="top: 92.3078%; left: 35.1756%;"></div><div class="star" style="top: 23.4831%; left: 55.9136%;"></div><div class="star" style="top: 71.9752%; left: 99.9804%;"></div><div class="star" style="top: 57.723%; left: 21.8057%;"></div><div class="star" style="top: 48.8009%; left: 21.2785%;"></div><div class="star" style="top: 51.6972%; left: 77.6143%;"></div><div class="star" style="top: 45.213%; left: 98.9184%;"></div><div class="star" style="top: 51.485%; left: 87.2698%;"></div><div class="star" style="top: 22.6742%; left: 58.6806%;"></div><div class="star" style="top: 50.6954%; left: 62.041%;"></div><div class="star" style="top: 79.1926%; left: 44.242%;"></div><div class="star" style="top: 81.9923%; left: 15.5923%;"></div><div class="star" style="top: 49.4074%; left: 85.9106%;"></div><div class="star" style="top: 88.4099%; left: 55.0184%;"></div><div class="star" style="top: 79.8238%; left: 93.1573%;"></div><div class="star" style="top: 22.5554%; left: 13.2375%;"></div><div class="star" style="top: 27.176%; left: 52.5468%;"></div><div class="star" style="top: 77.7243%; left: 89.9207%;"></div><div class="star" style="top: 9.69156%; left: 79.0147%;"></div><div class="star" style="top: 86.0698%; left: 61.2899%;"></div><div class="star" style="top: 21.097%; left: 43.6591%;"></div><div class="star" style="top: 72.7951%; left: 97.218%;"></div><div class="star" style="top: 5.64745%; left: 96.7347%;"></div><div class="star" style="top: 86.172%; left: 84.8233%;"></div><div class="star" style="top: 9.74062%; left: 2.33479%;"></div><div class="star" style="top: 5.57076%; left: 49.6161%;"></div><div class="star" style="top: 24.1118%; left: 3.24383%;"></div><div class="star" style="top: 41.3498%; left: 63.9891%;"></div><div class="star" style="top: 69.9271%; left: 3.14748%;"></div><div class="star" style="top: 77.5446%; left: 59.2906%;"></div><div class="star" style="top: 21.8998%; left: 38.7012%;"></div><div class="star" style="top: 14.4682%; left: 96.5164%;"></div><div class="star" style="top: 16.1559%; left: 37.2886%;"></div><div class="star" style="top: 38.9534%; left: 80.98%;"></div><div class="star" style="top: 64.7747%; left: 53.6979%;"></div><div class="star" style="top: 25.7125%; left: 78.2089%;"></div><div class="star" style="top: 53.2976%; left: 35.9842%;"></div><div class="star" style="top: 52.008%; left: 49.7338%;"></div><div class="star" style="top: 19.1232%; left: 12.9116%;"></div><div class="star" style="top: 21.8325%; left: 99.8304%;"></div><div class="star" style="top: 31.9964%; left: 61.2922%;"></div><div class="star" style="top: 52.3513%; left: 96.9637%;"></div><div class="star" style="top: 75.829%; left: 5.33288%;"></div><div class="star" style="top: 53.2216%; left: 43.2232%;"></div><div class="star" style="top: 84.3579%; left: 49.6781%;"></div><div class="star" style="top: 24.2534%; left: 52.3029%;"></div><div class="star" style="top: 55.7017%; left: 51.9528%;"></div><div class="star" style="top: 84.5614%; left: 78.3438%;"></div><div class="star" style="top: 77.7683%; left: 22.4458%;"></div><div class="star" style="top: 71.0427%; left: 4.78548%;"></div><div class="star" style="top: 78.272%; left: 94.3877%;"></div><div class="star" style="top: 32.9297%; left: 2.1301%;"></div><div class="star" style="top: 21.6938%; left: 56.8945%;"></div><div class="star" style="top: 96.521%; left: 47.2542%;"></div><div class="star" style="top: 45.122%; left: 31.6405%;"></div><div class="star" style="top: 14.4489%; left: 84.5887%;"></div><div class="star" style="top: 52.3048%; left: 91.4016%;"></div><div class="star" style="top: 2.11394%; left: 99.7649%;"></div><div class="star" style="top: 2.48134%; left: 37.3614%;"></div><div class="star" style="top: 51.5103%; left: 99.3308%;"></div><div class="star" style="top: 13.1167%; left: 14.5957%;"></div><div class="star" style="top: 49.1486%; left: 48.3647%;"></div><div class="star" style="top: 22.5123%; left: 91.7896%;"></div><div class="star" style="top: 28.9702%; left: 83.5902%;"></div><div class="star" style="top: 21.2803%; left: 95.3298%;"></div><div class="star" style="top: 14.6622%; left: 61.1834%;"></div><div class="star" style="top: 20.7982%; left: 3.71631%;"></div><div class="star" style="top: 52.4543%; left: 4.09176%;"></div><div class="star" style="top: 82.2896%; left: 38.6004%;"></div><div class="star" style="top: 37.7759%; left: 28.0997%;"></div><div class="star" style="top: 67.5678%; left: 8.80396%;"></div><div class="star" style="top: 47.1598%; left: 40.1996%;"></div><div class="star" style="top: 72.3561%; left: 13.5741%;"></div><div class="star" style="top: 89.7429%; left: 47.427%;"></div><div class="star" style="top: 28.4776%; left: 22.0077%;"></div><div class="star" style="top: 51.948%; left: 54.9133%;"></div><div class="star" style="top: 22.3974%; left: 35.1302%;"></div><div class="star" style="top: 89.0266%; left: 57.8595%;"></div><div class="star" style="top: 55.3948%; left: 50.7499%;"></div><div class="star" style="top: 58.5817%; left: 73.2208%;"></div><div class="star" style="top: 66.2941%; left: 94.1393%;"></div><div class="star" style="top: 58.1007%; left: 56.3354%;"></div><div class="star" style="top: 86.8644%; left: 50.2499%;"></div><div class="star" style="top: 2.00152%; left: 20.3876%;"></div><div class="star" style="top: 84.4766%; left: 67.8584%;"></div><div class="star" style="top: 48.1231%; left: 23.7403%;"></div><div class="star" style="top: 11.2423%; left: 21.7924%;"></div><div class="star" style="top: 1.37005%; left: 32.9287%;"></div><div class="star" style="top: 13.8989%; left: 88.0907%;"></div><div class="star" style="top: 29.9052%; left: 30.1765%;"></div><div class="star" style="top: 75.8932%; left: 98.2946%;"></div><div class="star" style="top: 97.0612%; left: 6.94174%;"></div></div>
+
+  <script>
+    function createStars() {
+      const starsContainer = document.getElementById('stars-container');
+      for (let i = 0; i < 100; i++) {
+        const star = document.createElement('div');
+        star.classList.add('star');
+        star.style.top = `${Math.random() * 100}%`;
+        star.style.left = `${Math.random() * 100}%`;
+        starsContainer.appendChild(star);
+      }
+    }
+
+    function toggleFaq(button) {
+      const content = button.nextElementSibling;
+      const emoji = button.querySelector('.emoji');
+      content.classList.toggle('open');
+      emoji.classList.toggle('open');
+      if (content.classList.contains('open')) {
+        emoji.textContent = '⌃';
+      } else {
+        emoji.textContent = '⌄';
+      }
+    }
+
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function redirectToGitHub() {
+      window.location.href = 'https://github.com/YOUR_GITHUB_LINK_HERE';
+    }
+
+    createStars();
+  </script>
+
+
+
+</body></html>
